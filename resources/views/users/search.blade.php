@@ -17,7 +17,7 @@
             </thead>
             <tbody class="table table-hover align-middle border">
                 {{-- Foreach --}}
-                @foreach ($users as $user)
+                @forelse ($users as $user)
                     <tr>
                         <td>{{$user->name}}</td>
                         <td>{{$user->department}}</td>
@@ -31,7 +31,9 @@
                         </td>
                         @include('users.modal.detail')
                     </tr>
-                @endforeach
+                @empty
+                    <p class="lead text-muted text-center">No users found.</p>
+                @endforelse
             </tbody>
         </table>
 
